@@ -1,4 +1,4 @@
-package pointer
+package pointers
 
 import "fmt"
 
@@ -44,8 +44,8 @@ func BakeBiscuitFailureVersion() {
 	*/
 }
 
-// BakebiscuitSuccessVersion ...
-func BakebiscuitSuccessVersion() {
+// BakeBiscuitSuccessVersion ...
+func BakeBiscuitSuccessVersion() {
 
 	// 다시 초코 비스킷을 만들어보자
 	chocoBiscuitRetry := &Biscuit{Choco: &Chocolate{}} // 이렇게 미리 초콜렛을 만들기 위한 별도의 그릇을 만들어주자
