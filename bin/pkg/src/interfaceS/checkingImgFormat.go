@@ -3,6 +3,7 @@ package interfaces
 import (
 	"image" // DecodeConfig() 를 사용하기 위해 image 패키지 import
 	"mime/multipart"
+	"reflect"
 
 	// 이미지로 허용해줄 확장자를 패키지로 추가함.
 	// 블랭크 임포트를 사용하는데, main 패키지가 아니면 주석을 달아줘야 lint 에러가 안 남.
@@ -49,6 +50,11 @@ func CheckImg(src MyImg) error { // 이미지 검사 함수의 파라미터로 �
 	// multipart.FileHeader struct는 MyImg 인터페이스가 갖고 있는 Open() 메소드를 구현하고 있는 것으로 인지됨.
 	// 그래서 파라미터로 무사히 들어오고, multipart.FileHeader의 Open() 메소드가 사용되어 파일이 무사히 읽히게 된다!
 	// 테스트코드도 이런 방식으로 해결을 했다. checkingImgFormat_test.go 파일을 확인해보면..
+
+	if reflect.ValueOf(src).IsNil() { // interface의 nil 확인 방법
+		return nil
+	}
+
 	r, err := src.Open()
 	if err != nil {
 		return err
