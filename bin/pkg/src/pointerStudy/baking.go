@@ -1,4 +1,4 @@
-package pointers
+package pointerstudy
 
 import "fmt"
 

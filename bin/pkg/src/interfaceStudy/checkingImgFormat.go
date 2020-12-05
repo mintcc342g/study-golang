@@ -1,4 +1,4 @@
-package interfaces
+package interfacestudy
 
 import (
 	"image" // DecodeConfig() 를 사용하기 위해 image 패키지 import

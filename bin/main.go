@@ -1,11 +1,11 @@
 package main
 
 import (
-	pointerS "./pkg/src/pointerS"
+	ps "./pkg/src/pointerStudy"
 )
 
 func main() {
 	// Study of Pointer
-	pointerS.BakeBiscuitSuccessVersion()
-	pointerS.BakeBiscuitFailureVersion()
+	ps.BakeBiscuitSuccessVersion()
+	ps.BakeBiscuitFailureVersion()
 }
