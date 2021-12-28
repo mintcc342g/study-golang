@@ -10,8 +10,8 @@ import (
 
 func main() {
 	// Study of Pointer
-	pos.BakeBiscuitSuccessVersion()
-	// pos.BakeBiscuitFailureVersion()
+	pos.BakeBiscuitSuccessVersion() // 맛있는 초코 비스킷 완성! >>> &{0xc000098480 스위스산 밀가루 100g 12 50}
+	// pos.BakeBiscuitFailureVersion() // error case
 
 	// Study of Interface ... duck typing
 	ice := &ins.IceCream{
@@ -19,13 +19,13 @@ func main() {
 	}
 
 	ice.Order("affogato")
-	fmt.Printf("\n\nmy ice cream >> %s", ice.GetMyIceCream())
+	fmt.Printf("\n\nmy ice cream >> %s", ice.GetMyIceCream()) // my ice cream: banila ice cream with ... espresso
 
 	ice.Order("chocolate")
-	fmt.Printf("\n\nmy ice cream >> %s", ice.GetMyIceCream())
+	fmt.Printf("\n\nmy ice cream >> %s", ice.GetMyIceCream()) // my ice cream: banila ice cream with ... chocolate syrup
 
 	ice.Order("steak")
-	fmt.Printf("\n\nmy ice cream >> %s", ice.GetMyIceCream())
+	fmt.Printf("\n\nmy ice cream >> %s", ice.GetMyIceCream()) // my ice cream: banila ice cream with ... What?
 
 	// Study of Callback Function
 	cfs.SayHello("World!", func(name string) string {

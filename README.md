@@ -1,3 +1,3 @@
-# study_golang
+# Study Golang
 
-- personal study notes and tips of the golang
+- personal memo of Golang
