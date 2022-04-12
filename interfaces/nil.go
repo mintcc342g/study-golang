@@ -1,4 +1,4 @@
-package mapstudy
+package interfaces
 
 import (
 	"fmt"

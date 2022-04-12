@@ -1,4 +1,6 @@
-package interfacestudy
+package pointer
+
+import "fmt"
 
 // IceCream ...
 type IceCream struct {
@@ -52,4 +54,19 @@ type BadRequest struct{}
 // GetTopping ... Topping interface
 func (b *BadRequest) GetTopping() string {
 	return "What?"
+}
+
+func TestDuckTyping() {
+	ice := &IceCream{
+		IceType: "banila ice cream",
+	}
+
+	ice.Order("affogato")
+	fmt.Printf("\n\nmy ice cream >> %s", ice.GetMyIceCream()) // my ice cream: banila ice cream with ... espresso
+
+	ice.Order("chocolate")
+	fmt.Printf("\n\nmy ice cream >> %s", ice.GetMyIceCream()) // my ice cream: banila ice cream with ... chocolate syrup
+
+	ice.Order("steak")
+	fmt.Printf("\n\nmy ice cream >> %s", ice.GetMyIceCream()) // my ice cream: banila ice cream with ... What?
 }

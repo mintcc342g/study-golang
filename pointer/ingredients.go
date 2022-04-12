@@ -1,4 +1,4 @@
-package pointerstudy
+package pointer
 
 // Biscuit ...
 type Biscuit struct {

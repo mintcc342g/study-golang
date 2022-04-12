@@ -1,4 +1,4 @@
-package pointerstudy
+package pointer
 
 import "fmt"
 
@@ -19,7 +19,33 @@ func BakeBiscuitFailureVersion() {
 
 	// 3. 만든 결과는..?
 	fmt.Printf("맛있는 초코 비스켓 완성! >>> %v", chocoBiscuit) // exit status 2 -> 즉 대실패!
+}
 
+// BakeBiscuitSuccessVersion ...
+func BakeBiscuitSuccessVersion() {
+
+	// 다시 초코 비스킷을 만들어보자
+	chocoBiscuitRetry := &Biscuit{Choco: &Chocolate{}} // 이렇게 미리 초콜렛을 만들기 위한 별도의 그릇을 만들어주자
+
+	// 2. 다시 재료를 넣자.
+	// 초코렛을 위한 그릇에 초코렛을 만들어주고..
+	chocoBiscuitRetry.Choco.Cacao = 5
+	chocoBiscuitRetry.Choco.Milk = "프랑스산 우유 50g"
+	chocoBiscuitRetry.Choco.Sugar = 30
+
+	// 비스킷을 만들어주자
+	chocoBiscuitRetry.Flour = "스위스산 밀가루 100g"
+	chocoBiscuitRetry.Salt = 12
+	chocoBiscuitRetry.Milk = 50
+
+	// 3. 만든 결과는..?
+	fmt.Printf("맛있는 초코 비스킷 완성! >>> %v", chocoBiscuitRetry) // 맛있는 초코 비스킷 완성! [&{0xc0000040a0 스위스산 밀가루 100g 12 50}]
+}
+
+func TestBaking() {
+	BakeBiscuitSuccessVersion() // 맛있는 초코 비스킷 완성! >>> &{0xc000098480 스위스산 밀가루 100g 12 50}
+
+	// BakeBiscuitFailureVersion() // error case
 	/*
 		// 왜 에러가 났을까?
 			- 초콜릿의 재료를 담아줄 메모리 공간을 할당해주지 않았기 때문임. (누가 요리 만들 때 재료 한꺼번에 넣으래..?)
@@ -42,25 +68,4 @@ func BakeBiscuitFailureVersion() {
 
 		// 따라서, 위의 예제에서도 chocoBiscuit 에 선언된 Biscuit 객체 내부에 Choco 필드를 위한 Chocoate 객체를 함께 선언해서 인스턴스화 해주어야 정상적으로 돌아감.
 	*/
-}
-
-// BakeBiscuitSuccessVersion ...
-func BakeBiscuitSuccessVersion() {
-
-	// 다시 초코 비스킷을 만들어보자
-	chocoBiscuitRetry := &Biscuit{Choco: &Chocolate{}} // 이렇게 미리 초콜렛을 만들기 위한 별도의 그릇을 만들어주자
-
-	// 2. 다시 재료를 넣자.
-	// 초코렛을 위한 그릇에 초코렛을 만들어주고..
-	chocoBiscuitRetry.Choco.Cacao = 5
-	chocoBiscuitRetry.Choco.Milk = "프랑스산 우유 50g"
-	chocoBiscuitRetry.Choco.Sugar = 30
-
-	// 비스킷을 만들어주자
-	chocoBiscuitRetry.Flour = "스위스산 밀가루 100g"
-	chocoBiscuitRetry.Salt = 12
-	chocoBiscuitRetry.Milk = 50
-
-	// 3. 만든 결과는..?
-	fmt.Printf("맛있는 초코 비스킷 완성! >>> %v", chocoBiscuitRetry) // 맛있는 초코 비스킷 완성! [&{0xc0000040a0 스위스산 밀가루 100g 12 50}]
 }
