@@ -1,8 +1,8 @@
-package mapstudy
+package interfaces
 
 import "testing"
 
-func TestIsNil(t *testing.T) {
+func TestNil(t *testing.T) {
 	type args struct {
 		m map[string]interface{}
 	}

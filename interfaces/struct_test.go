@@ -1,4 +1,4 @@
-package interfacestudy
+package interfaces
 
 import (
 	"fmt"
@@ -26,7 +26,7 @@ func TestCheckImg(t *testing.T) {
 
 	// 테스트에 사용할 이미지 파일 구조체. 이걸 args 구조체의 file 필드에 넣을거임.
 	ok := &TestImgFormat{file: "./cute_404_docker.png"}
-	nok := &TestImgFormat{file: "./checkingImgFormat.go"}
+	nok := &TestImgFormat{file: "./struct.go"}
 
 	// 테스트셋을 만듦.
 	tests := []struct {
